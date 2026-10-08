@@ -1,5 +1,6 @@
-import { FormEvent, useState } from 'react';
+import { useState, type FormEvent } from 'react';
 import { Play } from 'lucide-react';
+
 import type { StartJobPayload } from '../types/api';
 
 interface Props {

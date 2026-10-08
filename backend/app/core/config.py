@@ -1,15 +1,15 @@
 from functools import lru_cache
-from typing import List
+from typing import Annotated, List
 
 from pydantic import Field, field_validator
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
 
 
 class Settings(BaseSettings):
     app_name: str = "LeadGen Scraper Pro"
     app_env: str = "development"
     api_v1_prefix: str = "/api/v1"
-    backend_cors_origins: List[str] = Field(default_factory=lambda: ["http://localhost:5173"])
+    backend_cors_origins: Annotated[List[str], NoDecode] = Field(default_factory=lambda: ["http://localhost:5173"])
     database_url: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/leadgen_scraper"
     google_places_api_key: str | None = None
     scraper_min_delay_seconds: float = 1.0
