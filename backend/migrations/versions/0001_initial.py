@@ -17,7 +17,14 @@ depends_on: Union[str, Sequence[str], None] = None
 
 
 def upgrade() -> None:
-    job_status = postgresql.ENUM("pending", "running", "completed", "failed", name="job_status")
+    job_status = postgresql.ENUM(
+        "pending",
+        "running",
+        "completed",
+        "failed",
+        name="job_status",
+        create_type=False,
+    )
     job_status.create(op.get_bind(), checkfirst=True)
 
     op.create_table(

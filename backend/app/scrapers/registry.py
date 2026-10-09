@@ -1,9 +1,11 @@
 from app.scrapers.base import BaseScraper
 from app.scrapers.demo_directory import DemoDirectoryScraper
+from app.scrapers.gmaps_playwright import GMapsPlaywrightScraper
 from app.scrapers.google_places import GooglePlacesScraper
 
 SCRAPERS: dict[str, BaseScraper] = {
     DemoDirectoryScraper.source_name: DemoDirectoryScraper(),
+    GMapsPlaywrightScraper.source_name: GMapsPlaywrightScraper(),
     GooglePlacesScraper.source_name: GooglePlacesScraper(),
 }
 

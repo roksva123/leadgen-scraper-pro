@@ -60,6 +60,7 @@ export function JobForm({ onSubmit, loading }: Props) {
           >
             <option value="demo_directory">Demo Directory</option>
             <option value="google_places">Google Places API</option>
+            <option value="gmaps_playwright">Google Maps (Playwright Free)</option>
           </select>
         </label>
         <label className="space-y-1.5">
